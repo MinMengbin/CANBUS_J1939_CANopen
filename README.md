@@ -1,4 +1,4 @@
-# CANBUS_CAN_CANopen
+# CAN_CANBUS /SAE J1939 /CANopen
 # NOTE： I am currently still working on it. 
 
 # This is a C++ coding demo for CAN bus communication. It is based on SocketCAN for Linux.

@@ -26,4 +26,5 @@ SocketCAN wikipedia: https://en.wikipedia.org/wiki/SocketCAN
 
 
 Introduction to J1939 from Vector: https://vector.com/portal/medien/cmc/application_notes/AN-ION-1-3100_Introduction_to_J1939.pdf
+
 Simmasoftware Presentation about J1939: http://www.simmasoftware.com/j1939-presentation.pdf

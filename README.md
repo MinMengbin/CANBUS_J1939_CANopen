@@ -18,9 +18,12 @@ CIA 301 profile document: https://www.can-cia.org/index.php?eID=tx_nawsecuredl&u
 
 CANopen application layer and communication profile: https://www.can-cia.org/fileadmin/resources/documents/brochures/co_poster.pdf
 
-
 SocketCAN: https://www.kernel.org/doc/Documentation/networking/can.txt
 
 CANopen for Python: http://canopen.readthedocs.io/en/latest/nmt.html# 
 
 SocketCAN wikipedia: https://en.wikipedia.org/wiki/SocketCAN
+
+
+Introduction to J1939 from Vector: https://vector.com/portal/medien/cmc/application_notes/AN-ION-1-3100_Introduction_to_J1939.pdf
+Simmasoftware Presentation about J1939: http://www.simmasoftware.com/j1939-presentation.pdf

@@ -12,10 +12,15 @@ The main purpose of this project is to creat an application on PC (Linux system)
 
 # Reference:
 
-CANopen knowledge http://www.canopensolutions.com/index.html
+CANopen knowledge: http://www.canopensolutions.com/index.html
 
-SocketCAN https://www.kernel.org/doc/Documentation/networking/can.txt
+CIA 301 profile document: https://www.can-cia.org/index.php?eID=tx_nawsecuredl&u=12180&g=11&t=1530140445&hash=e6dd15e451da5974a65752ae52f567f99db00d7c&file=fileadmin/resources/documents/groups/301v04020006_cor3.pdf
 
-CANopen for Python http://canopen.readthedocs.io/en/latest/nmt.html# 
+CANopen application layer and communication profile: https://www.can-cia.org/fileadmin/resources/documents/brochures/co_poster.pdf
 
-SocketCAN wikipedia https://en.wikipedia.org/wiki/SocketCAN
+
+SocketCAN: https://www.kernel.org/doc/Documentation/networking/can.txt
+
+CANopen for Python: http://canopen.readthedocs.io/en/latest/nmt.html# 
+
+SocketCAN wikipedia: https://en.wikipedia.org/wiki/SocketCAN

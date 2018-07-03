@@ -94,24 +94,24 @@ sudo nano interfaces  # edit the file of interfaces
 
 Then you will see the following lines
 
-#interfaces(5) file used by ifup(8) and ifdown(8)
+      #interfaces(5) file used by ifup(8) and ifdown(8)
 
-auto lo
+      auto lo
 
-iface lo inet loopback
+      iface lo inet loopback
 
 
 add folling lines after. You should see soemthing like this
 
-iface lo inet loopback
+    iface lo inet loopback
 
-allow-hotplug can0
+    allow-hotplug can0
 
-iface can0 can static
+    iface can0 can static
 
-    bitrate 500000 #bitrate set as 500000
+        bitrate 500000 #bitrate set as 500000
     
-#up ip link set $IFACE txqueuelen 20 #uncomment if more than 4 nodes are used
+        #up ip link set $IFACE txqueuelen 20 #uncomment if more than 4 nodes are used
 
 
 More information about how to edit interfaces file, please refer

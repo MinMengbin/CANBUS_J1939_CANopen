@@ -86,7 +86,7 @@ E: USEC_INITIALIZED=315431131
 This device information printed above is useful if you want to add some udev rules (http://www.reactivated.net/writing_udev_rules.html). udev rules will do something you want when the USB2CAN is plugged or unplugged based on system events.
 
 
-Now, the can bus (for my case it is can0) is treated as a net since the driver is based on socketcan. You can set up can0 bitrate automatically instead of by typing command " sudo ip link set can0 type can biterate 500000 ". This is done by adding a few lines to the internet configuration files at /etc/network/interfaces. Follow the steps:
+Now, the can bus (for my case it is can0) is treated as a net since the driver is based on socketcan. You can set up can0 bitrate automatically instead of by typing command " sudo ip link set can0 type can bitrate 500000 ". This is done by adding a few lines to the internet configuration files at /etc/network/interfaces. Follow the steps:
 
 cd /etc/network   # direct to network folder
 
@@ -101,7 +101,7 @@ Then you will see the following lines
       iface lo inet loopback
 
 
-add folling lines after. You should see soemthing like this
+add following lines after. You should see something like below
 
     iface lo inet loopback
 

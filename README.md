@@ -102,6 +102,7 @@ CANopen for Python: http://canopen.readthedocs.io/en/latest/nmt.html#
 
 SocketCAN wikipedia: https://en.wikipedia.org/wiki/SocketCAN
 
+CANopen high-level protocol for CAN-bus: https://www.nikhef.nl/pub/departments/ct/po/doc/CANopen.pdf
 
 Introduction to J1939 from Vector: https://vector.com/portal/medien/cmc/application_notes/AN-ION-1-3100_Introduction_to_J1939.pdf
 

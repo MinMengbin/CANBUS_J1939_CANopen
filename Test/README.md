@@ -94,10 +94,13 @@ canmessage terminal receives new two lines as shown below
 (This line is from the node-ID of 10. 0x08 means there are 8 mappings.)
 
 
-If you send some commands which do not contain the right index and subindex values in the object dictionary (OD), you will get Abort Domain Transfer feedback from the canbus as shown below. 
+If you send some commands which do not contain the right index and subindex values in the object dictionary (OD), you will get Abort Domain Transfer feedback from the canbus as shown below. The first byte of data is 0x80 which means Abort Domain Transfer.
       
       ~$ cansend can0 60A#401A000300000000
 
       
       can0  60A   [8]  40 1A 00 01 00 00 00 00
       can0  58A   [8]  80 1A 00 01 00 00 02 06
+ 
+ 
+

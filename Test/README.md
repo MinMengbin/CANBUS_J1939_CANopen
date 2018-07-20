@@ -79,7 +79,6 @@ command syntax: COB-ID#[data0][data1][data2][data3][data4-data7] (for details, p
 First test expedited transfer.
 
 # (Initiate Domian Upload)
-/*****************
 
  cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
       
@@ -104,11 +103,11 @@ If you send some commands which do not contain the right index and subindex valu
       
       can0  60A   [8]  40 1A 00 01 00 00 00 00
       can0  58A   [8]  80 1A 00 01 00 00 02 06
- *****************/
+
  
  
 # (Initiate Domian Download)
-/*****************
+
 
  cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
       
@@ -118,5 +117,4 @@ canmessage terminal receives new two lines as shown below (server -> client)
 
       can0  60A   [8]  40 00 1A 00 00 00 00 00
       can0  58A   [8]  4F 00 1A 00 08 00 00 00
-   
- *****************/
+

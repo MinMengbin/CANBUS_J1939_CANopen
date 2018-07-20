@@ -21,9 +21,12 @@ can0 is the aliasing name for the CANbus
 (An NMT-Slave issues the Boot-up message to in-dicate  to  the  NMT-Master  that  it  has  entered  the  state Pre-operational from state Initialising.)
 
 # NMT command test
-
-	/*
+ command syntax is: COB-ID#[data0][data1]  (for details, please check referece of CANopen high-level protocol for CAN-bus)   
+	
+    /*
     CAN-ID is 000 which is the highest identifier for NMT (CANopen network management)
+    
+    [data0] is the command specifier shown below
     'OPERATIONAL': 1, 0x01
     'STOPPED': 2, 0x02
     'SLEEP': 80, 0x50
@@ -32,19 +35,64 @@ can0 is the aliasing name for the CANbus
     'INITIALISING': 129, 0x81
     'RESET': 129,0x81
     'RESET COMMUNICATION': 130, 0x82
+    
+    [data1] is the node-ID which is from 1-127 (0x01-0x7F)
+    
     CAN_utils example:  device: can0
-    change the node id (10, A in hex) to operational model via NMT command
+    change the node id (10, A in hex) to operational mode via NMT command
 	cansend can0 000#010A
- 	*/
+    */
 
-   cansend terminal -> input can 
+   cansend terminal -> input the following command to switch node-ID of 10 to operational mode
       
       cansend can0 000#010A
 
-# SDO command test
+   canmessage terminal then gets new messages as shown below: 
+     	
+	can0  000   [2]  01 0A
+  	can0  18A   [8]  00 00 00 00 00 00 00 00
+  	can0  28A   [8]  00 00 00 00 00 00 00 00
+  	can0  38A   [8]  00 00 00 00 00 00 00 00
+  	can0  48A   [8]  00 00 00 00 00 00 00 00
+
+   can0  000   [2]  01 0A 
+   (This line is from the cansend terminal cansend can0 000#010A )
+  	
+   can0  18A   [8]  00 00 00 00 00 00 00 00
+   
+   can0  28A   [8]  00 00 00 00 00 00 00 00
+   
+   can0  38A   [8]  00 00 00 00 00 00 00 00
+   
+   can0  48A   [8]  00 00 00 00 00 00 00 00
+   
+   (These four lines are from the node-ID of 10. They are TPDO messages which are default.)
+ 
+ Change node-ID of 10 to pre-operational mode again, then we can test SDO protocol
+ 	
+	cansend can0 000#800A
+
+# SDO (Service Data Object) protocol
+  
+command syntax: COB-ID#[data0][data1][data2][data3][data4-data7] (for details, please check referece of CANopen high-level protocol for CAN-bus)
+  
+First test expedited transfer.
+ 
+ cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
+      
+      ~$ cansend can0 60A#40001A0000000000
+
+600+A: COB-ID; 0x1A00: index; 0x00: subindex; (Refer to the EDS file of the can node to get the value of index and subindex)
+
+canmessage terminal receives new two lines as shown below
 
       can0  60A   [8]  40 00 1A 00 00 00 00 00
       can0  58A   [8]  4F 00 1A 00 08 00 00 00
+   
+   can0  58A   [8]  4F 00 1A 00 08 00 00 00
+
+(This line is from the node-ID of 10. 0x08 means there are 8 mappings.)
+
 
 If you send some commands which do not contain the right index and subindex values in the object dictionary (OD), you will get Abort Domain Transfer feedback from the canbus as shown below. 
       

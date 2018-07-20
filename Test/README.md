@@ -77,14 +77,16 @@ can0 is the aliasing name for the CANbus
 command syntax: COB-ID#[data0][data1][data2][data3][data4-data7] (for details, please check referece of CANopen high-level protocol for CAN-bus)
   
 First test expedited transfer.
- 
+
+# (Initiate Domian Upload)
+/*****************
  cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
       
       ~$ cansend can0 60A#40001A0000000000
 
 600+A: COB-ID; 0x1A00: index; 0x00: subindex; (Refer to the EDS file of the can node to get the value of index and subindex)
 
-canmessage terminal receives new two lines as shown below
+canmessage terminal receives new two lines as shown below (server -> client)
 
       can0  60A   [8]  40 00 1A 00 00 00 00 00
       can0  58A   [8]  4F 00 1A 00 08 00 00 00
@@ -101,6 +103,18 @@ If you send some commands which do not contain the right index and subindex valu
       
       can0  60A   [8]  40 1A 00 01 00 00 00 00
       can0  58A   [8]  80 1A 00 01 00 00 02 06
+ *****************/
  
  
+# (Initiate Domian Download)
+/*****************
+ cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
+      
+      ~$ cansend can0 58A#2F001A0009
 
+canmessage terminal receives new two lines as shown below (server -> client)
+
+      can0  60A   [8]  40 00 1A 00 00 00 00 00
+      can0  58A   [8]  4F 00 1A 00 08 00 00 00
+   
+ *****************/

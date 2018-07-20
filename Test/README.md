@@ -111,10 +111,7 @@ If you send some commands which do not contain the right index and subindex valu
 
  cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
       
-      ~$ cansend can0 58A#2F001A0009
+      ~$ cansend can0 
 
 canmessage terminal receives new two lines as shown below (server -> client)
-
-      can0  60A   [8]  40 00 1A 00 00 00 00 00
-      can0  58A   [8]  4F 00 1A 00 08 00 00 00
 

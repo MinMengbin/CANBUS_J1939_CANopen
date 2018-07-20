@@ -22,26 +22,24 @@ can0 is the aliasing name for the CANbus
 
 # NMT command test
 
-/*
-    Regarding CANopen device, please change the status from pre-operational to operational
-    after initialization.
+	/*
     CAN-ID is 000 which is the highest identifier for NMT (CANopen network management)
     'OPERATIONAL': 1, 0x01
     'STOPPED': 2, 0x02
     'SLEEP': 80, 0x50
     'STANDBY': 96, 0x60
     'PRE-OPERATIONAL': 128, 0x80
-    'INITIALISING': 129,
-    'RESET': 129,
-    'RESET COMMUNICATION': 130
+    'INITIALISING': 129, 0x81
+    'RESET': 129,0x81
+    'RESET COMMUNICATION': 130, 0x82
     CAN_utils example:  device: can0
     change the node id (10, A in hex) to operational model via NMT command
 	cansend can0 000#010A
- */
+ 	*/
 
    cansend terminal -> input can 
       
-      can0 
+      cansend can0 000#010A
 
 # SDO command test
 

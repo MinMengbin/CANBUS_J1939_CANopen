@@ -80,6 +80,7 @@ First test expedited transfer.
 
 # (Initiate Domian Upload)
 /*****************
+
  cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
       
       ~$ cansend can0 60A#40001A0000000000
@@ -108,6 +109,7 @@ If you send some commands which do not contain the right index and subindex valu
  
 # (Initiate Domian Download)
 /*****************
+
  cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
       
       ~$ cansend can0 58A#2F001A0009

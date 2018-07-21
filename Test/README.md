@@ -115,3 +115,38 @@ If you send some commands which do not contain the right index and subindex valu
 
 canmessage terminal receives new two lines as shown below (server -> client)
 
+Then switch to operational model:
+
+	~$ cansend can0 000#010A
+
+# PDO (Process Data Object) protocol
+
+cansend terminal -> input the following command to switch can0 to pre-operational mode. (Master -> Slave)
+      
+      ~$ cansend can0 000#800A
+
+check the Receive PDO Communication parameters (For ABB canslave, default are 0x1400 to 0x143F.)
+
+	~$ cansend can0 60A#40001400
+	
+canmessage terminal receives new two lines as shown below (server -> client)
+
+  	can0  60A   [4]  40 00 14 00
+  	can0  58A   [8]  4F 00 14 00 02 00 00 00
+	
+02 means there are two entries of RPDO0.
+	
+	~$ cansend can0 60A#40001401 
+  	
+	can0  60A   [4]  40 00 14 01
+  	can0  58A   [8]  43 00 14 01 0A 02 00 00
+
+First entry is COB-ID (CAN-ID), 020A.
+
+	~$ cansend can0 60A#40001402
+	
+  	can0  60A   [4]  40 00 14 02
+  	can0  58A   [8]  4F 00 14 02 FE 00 00 00
+
+Second entry is Transmission type, FE (254 decimal).
+

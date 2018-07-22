@@ -217,3 +217,20 @@ or swith can0 to operational mode
   	can0  38A   [8]  00 00 00 00 00 00 00 00
   	can0  48A   [8]  00 00 00 00 00 00 00 00
 TPDO0 message (can0  18A   [8]  00 00 00 00 00 00 00 00) is gone which confirms that PDO0 is inactive.
+
+After deactivating this PDO, then you can change these values of transmission type OD_ 1800(index)02(subindex) or inhibit time in ms  OD_ 1800(index)03(subindex). 
+	
+	~$ cansend can0 60A#2F001802FE
+	
+	can0  60A   [5]  2F 00 18 02 FE  (254)
+	can0  58A   [8]  60 00 18 02 00 00 00 00
+
+	~$ cansend can0 60A#2B0018030100
+	
+	can0  60A   [6]  2B 00 18 03 01 00    (inhibite time is 1 ms)
+  	can0  58A   [8]  60 00 18 03 00 00 00 00
+
+
+	
+
+

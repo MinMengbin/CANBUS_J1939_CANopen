@@ -227,7 +227,7 @@ After deactivating this PDO, then you can change these values of transmission ty
 
 	~$ cansend can0 60A#2B0018030100
 	
-	can0  60A   [6]  2B 00 18 03 01 00    (inhibite time is 1 ms)
+	can0  60A   [6]  2B 00 18 03 01 00    (inhibit time is 1 ms)
   	can0  58A   [8]  60 00 18 03 00 00 00 00
 
 

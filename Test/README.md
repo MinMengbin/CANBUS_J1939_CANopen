@@ -91,8 +91,6 @@ canmessage terminal receives new two lines as shown below (server -> client)
       can0  60A   [8]  40 00 1A 00 00 00 00 00
       can0  58A   [8]  4F 00 1A 00 08 00 00 00
    
-   can0  58A   [8]  4F 00 1A 00 08 00 00 00
-
 (This line is from the node-ID of 10. 0x08 means there are 8 mappings.)
 
 
@@ -109,21 +107,22 @@ If you send some commands which do not contain the right index and subindex valu
 # (Initiate Domian Download)
 
 
- cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
+ cansend terminal -> input the following command to upload the value of COB-ID. index 0x1800,  Subindex 01. (client -> server)
       
-      ~$ cansend can0 
+      ~$ cansend can0 60A#230018018A010080
 
 canmessage terminal receives new two lines as shown below (server -> client)
+	
+	can0  60A   [8]  23 00 18 01 8A 01 00 00
+  	can0  58A   [8]  60 00 18 01 00 00 00 00
 
+If successful, first byte is 0x60 as shown above. Otherwise, first byte is 80. Please check error codes from reference of CANopen high-level protocol for CAN-bus.	
+	
 Then switch to operational model:
 
 	~$ cansend can0 000#010A
 
 # PDO (Process Data Object) protocol
-
-cansend terminal -> input the following command to switch can0 to pre-operational mode. (Master -> Slave)
-      
-      ~$ cansend can0 000#800A
 
 check the Receive PDO Communication parameters (For ABB canslave, default are 0x1400 to 0x143F.)
 
@@ -195,3 +194,26 @@ check the Transmit PDO Mapping which is similar to RxPDO
   	can0  60A   [4]  40 00 1A 01
   	can0  58A   [8]  43 00 1A 01 08 01 00 20 (2000(index)01(subindex)08(8 bits data or 1 byte data))
 	
+Activate or Deactivate PDOs. Using SDO download protocol to change the PDO's COB-ID value to achieve this. Because if the highest bit of COB-ID is 1, this PDO is invalid. Vise versa.) Here, I am going to change the node-ID of 10's PDO0 COB-ID value from 0000018A into 8000018A. Then this PDO0 is invalid.
+
+	~$ cansend can0 60A#230018018A010080
+  	
+	can0  60A   [8]  23 00 18 01 8A 01 00 80
+  	can0  58A   [8]  60 00 18 01 00 00 00 00
+
+Check the new value 
+	
+	~$ cansend can0 60A#40001801
+	
+  	can0  60A   [4]  40 00 18 01
+  	can0  58A   [8]  43 00 18 01 8A 01 00 80
+	
+or swith can0 to operational mode
+
+	~$ cansend can0 000#010A
+
+  	can0  000   [2]  01 0A
+  	can0  28A   [8]  00 00 00 00 00 00 00 00
+  	can0  38A   [8]  00 00 00 00 00 00 00 00
+  	can0  48A   [8]  00 00 00 00 00 00 00 00
+TPDO0 message is gone which confirms that PDO0 is inactive.

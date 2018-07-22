@@ -134,7 +134,7 @@ canmessage terminal receives new two lines as shown below (server -> client)
   	can0  60A   [4]  40 00 14 00
   	can0  58A   [8]  4F 00 14 00 02 00 00 00
 	
-02 means there are two entries of RPDO0.
+02 means there are two entries of RPDO0 communication parameters.
 	
 	~$ cansend can0 60A#40001401 
   	
@@ -150,3 +150,48 @@ First entry is COB-ID (CAN-ID), 020A.
 
 Second entry is Transmission type, FE (254 decimal).
 
+Check the Receive PDO Mapping parameters (Check the setup or datasheet) 
+  
+  note: (PDO Mapping parameters index is normally 0x200 offset after PDO Communication parameters index) 0x1400 + 0x200 = 0x1600
+	
+	~$ cansend can0 60A#40001600
+ 	 
+	 can0  60A   [4]  40 00 16 00
+ 	 can0  58A   [8]  4F 00 16 00 08 00 00 00
+
+08 means there are 8 entries of mapping.  Check the first entry of RxPDO.
+
+	~$ cansend can0 60A#40001601
+	
+	can0  60A   [4]  40 00 16 01
+  	can0  58A   [8]  43 00 16 01 08 01 00 22
+2200(index)01(subindex)08(8 bits data or one byte data). This mathes the setup or datasheet.
+
+check the Transmit PDO Communication parameters (For ABB canslave, first is 0x1800.)
+	
+	~$ cansend can0 60A#40001800
+	
+ 	can0  60A   [4]  40 00 18 00
+  	can0  58A   [8]  4F 00 18 00 03 00 00 00
+03 means three entries, then have a look at the entries
+	
+	~$ cansend can0 60A#40001801
+	~$ cansend can0 60A#40001802
+	~$ cansend can0 60A#40001803
+
+  	can0  60A   [4]  40 00 18 01
+ 	can0  58A   [8]  43 00 18 01 8A 01 00 00  (COB-ID 018A)
+  	can0  60A   [4]  40 00 18 02
+  	can0  58A   [8]  4F 00 18 02 FE 00 00 00  (Transmission type, FE,254 decimal)
+  	can0  60A   [4]  40 00 18 03
+ 	can0  58A   [8]  4B 00 18 03 00 00 00 00  (Inhibit time, 0 * 100us = 0 us)
+check the Transmit PDO Mapping which is similar to RxPDO
+	
+	~$ cansend can0 60A#40001A00
+	~$ cansend can0 60A#40001A01
+
+	can0  60A   [4]  40 00 1A 00
+  	can0  58A   [8]  4F 00 1A 00 08 00 00 00 (8 entries)
+  	can0  60A   [4]  40 00 1A 01
+  	can0  58A   [8]  43 00 1A 01 08 01 00 20 (2000(index)01(subindex)08(8 bits data or 1 byte data))
+	

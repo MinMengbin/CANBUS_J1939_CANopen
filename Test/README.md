@@ -216,4 +216,4 @@ or swith can0 to operational mode
   	can0  28A   [8]  00 00 00 00 00 00 00 00
   	can0  38A   [8]  00 00 00 00 00 00 00 00
   	can0  48A   [8]  00 00 00 00 00 00 00 00
-TPDO0 message is gone which confirms that PDO0 is inactive.
+TPDO0 message (can0  18A   [8]  00 00 00 00 00 00 00 00) is gone which confirms that PDO0 is inactive.

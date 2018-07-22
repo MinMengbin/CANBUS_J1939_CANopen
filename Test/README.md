@@ -183,7 +183,7 @@ check the Transmit PDO Communication parameters (For ABB canslave, first is 0x18
   	can0  60A   [4]  40 00 18 02
   	can0  58A   [8]  4F 00 18 02 FE 00 00 00  (Transmission type, FE,254 decimal)
   	can0  60A   [4]  40 00 18 03
- 	can0  58A   [8]  4B 00 18 03 00 00 00 00  (Inhibit time, 0 * 100us = 0 us)
+ 	can0  58A   [8]  4B 00 18 03 00 00 00 00  (Inhibit time, 0 * 100 us = 0 us)
 check the Transmit PDO Mapping which is similar to RxPDO
 	
 	~$ cansend can0 60A#40001A00
@@ -227,7 +227,7 @@ After deactivating this PDO, then you can change these values of transmission ty
 
 	~$ cansend can0 60A#2B0018030100
 	
-	can0  60A   [6]  2B 00 18 03 01 00    (inhibit time is 1 ms)
+	can0  60A   [6]  2B 00 18 03 01 00    (inhibit time: 1 * 100 us = 100 us)
   	can0  58A   [8]  60 00 18 03 00 00 00 00
 
 

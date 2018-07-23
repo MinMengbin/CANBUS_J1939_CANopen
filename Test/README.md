@@ -16,7 +16,10 @@ Power on all the nodes on the canbus system. For my case, it is ABB CAN slave mo
             can0  08A   [8]  00 00 00 00 00 00 00 00
 can0 is the aliasing name for the CANbus
 
-70A: COB-ID (Hex) or CAN-ID =  700 + A (node-ID); [1] : 1 byte data; 00: value of the data
+Boot-up message: 70A: COB-ID (Hex) or CAN-ID =  700 + A (node-ID); [1] : 1 byte data; 00: value of the data
+
+Emergency message: 08A: COB-ID (Hex) or CAN-ID =  080 + A (node-ID); [8] : 8 bytes data; 0000000000000000: value of the data. All zeros means error reset or no error.
+
 
 (An NMT-Slave issues the Boot-up message to in-dicate  to  the  NMT-Master  that  it  has  entered  the  state Pre-operational from state Initialising.)
 

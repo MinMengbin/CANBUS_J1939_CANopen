@@ -78,7 +78,7 @@ command syntax: COB-ID#[data0][data1][data2][data3][data4-data7] (for details, p
   
 First test expedited transfer.
 
-# [Initiate Domian Upload]
+# [Initiate Domain Upload]
 
  cansend terminal -> input the following command to upload the value of number of mappings. (client -> server)
       
@@ -104,7 +104,7 @@ If you send some commands which do not contain the right index and subindex valu
 
  
  
-# [Initiate Domian Download]
+# [Initiate Domain Download]
 
 syntax COB-ID#[data0][data1][data2][data3][data4-data7] (For details please check reference of CANopen high-level protocol for CAN-bus.)
 
@@ -167,7 +167,7 @@ Second entry is Transmission type, FE (254 decimal).
   	can0  58A   [8]  43 00 16 01 08 01 00 22
 2200(index)01(subindex)08(8 bits data or one byte data). This mathes the setup or datasheet.
 
-# [write a RxPDO message to can0 from computer]
+# [write a RxPDO message to can0 from computer to can slave]
 	
 	~$ cansend can0 20A#0000000000000011
 	
@@ -175,7 +175,7 @@ Second entry is Transmission type, FE (254 decimal).
 	
 After this, the value of from 2200 (index) 01 (subindex) to 2200 (index) 08 (subindex) changed to 00 00 00 00 00 00 00 01 relatively.
 
-# [check the Transmit PDO Communication parameters (For ABB canslave, first is 0x1800.)]
+# [check the Transmit PDO Communication parameters (For ABB can slave, first is 0x1800.)]
 	
 	~$ cansend can0 60A#40001800
 	

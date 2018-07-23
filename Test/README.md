@@ -125,7 +125,7 @@ Then switch to operational model:
 
 # PDO (Process Data Object) protocol
 
-check the Receive PDO Communication parameters (For ABB canslave, default are 0x1400 to 0x143F.)
+  # [check the Receive PDO Communication parameters (For ABB canslave, default are 0x1400 to 0x143F.)]
 
 	~$ cansend can0 60A#40001400
 	
@@ -159,7 +159,7 @@ Check the Receive PDO Mapping parameters (Check the setup or datasheet)
 	 can0  60A   [4]  40 00 16 00
  	 can0  58A   [8]  4F 00 16 00 08 00 00 00
 
-08 means there are 8 entries of mapping.  Check the first entry of RxPDO.
+08 means there are 8 entries of mapping or 8 subjects.  Check the first entry of RxPDO.
 
 	~$ cansend can0 60A#40001601
 	
@@ -167,7 +167,17 @@ Check the Receive PDO Mapping parameters (Check the setup or datasheet)
   	can0  58A   [8]  43 00 16 01 08 01 00 22
 2200(index)01(subindex)08(8 bits data or one byte data). This mathes the setup or datasheet.
 
-check the Transmit PDO Communication parameters (For ABB canslave, first is 0x1800.)
+# [check the Transmit PDO Communication parameters (For ABB canslave, first is 0x1800.)]
+
+write a RxPDO message to can0
+	
+	~$ cansend can0 20A#0000000000000011
+	
+	can0  20A   [8]  00 00 00 00 00 00 00 01
+	
+After this, the value of from 2200 (index) 01 (subindex) to 2200 (index) 08 (subindex) changed to 00 00 00 00 00 00 00 01 relatively.
+
+# [check the Transmit PDO Communication parameters (For ABB canslave, first is 0x1800.)]
 	
 	~$ cansend can0 60A#40001800
 	

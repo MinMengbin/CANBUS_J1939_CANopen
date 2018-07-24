@@ -15,8 +15,10 @@
        (* PLC coding for can communication
 
         From computer ( linux system) can-utils
-
-        cansend can0 20A#0006000000000000   
+        
+        cansend can0 000#010A (* switch can-node 10 into operational mode*)
+        
+        cansend can0 20A#0006000000000000 
 
         ----> value of CO_00 change to 6, then R0 is on, R1 is off, send 108#0001000000000000 to canbus
 
@@ -43,7 +45,7 @@
         IF CI_00 = 6 THEN
             R0 := TRUE;
             R1 := FALSE;
-           CO_00 := 1;
+            CO_00 := 1;
         ELSE
            R0 := FALSE;
            R1 := TRUE;
@@ -53,5 +55,20 @@
         
  [can-utils] linux computer
  
+ canmessage terminal: 
  
-  
+      candump can0 
+      
+      can0  000   [2]  01 0A
+      can0  20A   [8]  00 06 00 00 00 00 00 00
+      can0  18A   [8]  00 01 00 00 00 00 00 00
+      can0  20A   [8]  00 05 00 00 00 00 00 00
+      can0  18A   [8]  00 02 00 00 00 00 00 00
+
+ cansend terminal
+ 
+      ~$ cansend can0 000#010A
+      ~$ cansend can0 20A#0006000000000000
+      ~$ cansend can0 20A#0005000000000000
+
+      

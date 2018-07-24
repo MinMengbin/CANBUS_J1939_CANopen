@@ -242,7 +242,7 @@ After deactivating this PDO, then you can change these values of transmission ty
 	can0  60A   [6]  2B 00 18 03 01 00    (inhibit time: 1 * 100 us = 100 us)
   	can0  58A   [8]  60 00 18 03 00 00 00 00
 
-
+After these tests, please go to ABB_CAN_PLC.md to see how to use ABB can slave module CM588.
 	
 
 

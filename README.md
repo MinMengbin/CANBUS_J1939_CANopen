@@ -1,23 +1,11 @@
-# CAN_CANBUS /SAE J1939 /CANopen
-# NOTE： I am currently still working on it. 
+# CAN_CANBUS /SAE J1939 /CANopen /ABB /PLC PM583 /CAN slave module CM588
+  This is a demo for CAN bus communication. It is based on SocketCAN for Linux.
 
 # The USB2CAN device is 
-
 https://www.ixxat.com/docs/librariesprovider8/default-document-library/products/can-pc-interfaces/usb-to-can-v2-manual-english.pdf?sfvrsn=2
 
-
-# This is a C++ coding demo for CAN bus communication. It is based on SocketCAN for Linux.
-The main purpose of this project is to creat an application on PC (Linux system) for CAN comminication. Based on SocketCAN for Linux, I want to build my program to communicate with other devices via either SAE J1939 or CANopen communication protocol. This program is a low-level CAN communication application. It is not based on others project such as CANopenNode.
-
-# Important header files from system and linux:
-
-#include <linux/can.h>
-
-#include <sys/socket.h>
-
 # How to automatic load driver and set up can bitrate and bring it up when USB2CAN is plugged?
- 
- Read file Auto_driver_Set_CAN.md
+  Read file Auto_driver_Set_CAN.md
  
 # How to use CANopen protocol
   Please go to folder of TEST (This file is used to test canopen protocols including NMT(Network ManageMent) protocol, Boot-up protocol, Heartbeat protocol, SDO(Service Data Object) protocol, PDO(Process Data Object) protocol.)

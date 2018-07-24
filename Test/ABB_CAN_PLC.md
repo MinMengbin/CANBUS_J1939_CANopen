@@ -20,37 +20,43 @@
         
         cansend can0 20A#0006000000000000 
 
-        ----> value of CO_00 change to 6, then R0 is on, R1 is off, send 108#0001000000000000 to canbus
+        ----> value of CO_00 change to 6, then R0 is on, R1 is off, (or outputs (c4 c5 c6 c7) on outputs (c8 c9 c10 c11) off from CD522) send 108#0001000000000000 to canbus
 
         cansend can0 20A#0005000000000000  
 
-        -----> value of CO_00 change to 5, then R0 is off, R1 is on send 108#0002000000000000 to canbus
+        -----> value of CO_00 change to 5, then R0 is off, R1 is on, (or outputs (c4 c5 c6 c7) off outputs (c8 c9 c10 c11) on from CD522) send 108#0002000000000000 to canbus
         *)
 
 
-        (* cansend protocol  *)
-        can2asend.EN := TRUE;
-        can2asend.SLOT := slotNum_can;
-        can2asend.NUM  := 1;
-        can2asend.DATA  := ADR(CO_00);
-        CO_00 := 0;
+      (* cansend protocol  *)
+      can2asend.EN := TRUE;
+      can2asend.SLOT := slotNum_can;
+      can2asend.NUM  := 1;
+      can2asend.DATA  := ADR(CO_00);
+      can2asend.DATA  := ADR(CO_01);
+      CO_00 := 0;
 
-        (* canreceive protocol *)
-        can2arec.EN := TRUE;
-        can2arec.SLOT := slotNum_can;
-        can2arec.ID := id_rec;
-        can2arec.DATA := ADR(CI_00);
+      (* canreceive protocol *)
+      can2arec.EN := TRUE;
+      can2arec.SLOT := slotNum_can;
+      can2arec.ID := id_rec;
+      can2arec.DATA := ADR(CI_00);
 
-        (*actions*)
-        IF CI_00 = 6 THEN
-            R0 := TRUE;
-            R1 := FALSE;
-            CO_00 := 1;
-        ELSE
-           R0 := FALSE;
-           R1 := TRUE;
-           CO_00 := 2;
-        END_IF;
+      (*actions*)
+      IF CI_00 = 6 THEN
+          (*R0 := TRUE;
+          R1 := FALSE;*)
+          CO_00 := 1;
+         CO04_CD522 := 16#FFFF;
+         CO14_CD522 := 16#0000;
+
+      ELSE
+        (* R0 := FALSE;
+         R1 := TRUE;*)
+         CO_00 := 2;
+         CO04_CD522 := 16#0000;
+         CO14_CD522 := 16#FFFF;
+      END_IF;
         
         
  [can-utils] linux computer

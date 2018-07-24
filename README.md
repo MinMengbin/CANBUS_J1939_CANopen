@@ -18,6 +18,10 @@ The main purpose of this project is to creat an application on PC (Linux system)
 # How to automatic load driver and set up can bitrate and bring it up when USB2CAN is plugged?
  
  Read file Auto_driver_Set_CAN.md
+ 
+# How to use CANopen protocol
+  Please go to folder of TEST (This file is used to test canopen protocols including NMT(Network ManageMent) protocol, Boot-up protocol, Heartbeat protocol, SDO(Service Data Object) protocol, PDO(Process Data Object) protocol.)
+ 
 
 # Reference:
 

@@ -10,7 +10,12 @@ https://www.ixxat.com/docs/librariesprovider8/default-document-library/products/
 # How to use CANopen protocol
   Please go to folder of TEST (This file is used to test canopen protocols including NMT(Network ManageMent) protocol, Boot-up protocol, Heartbeat protocol, SDO(Service Data Object) protocol, PDO(Process Data Object) protocol.)
  
+# Generic CAN communication ros node
+  under the folder of can_aspa
 
+# CANopen communication based on canopen-node ros node 
+  under the folder of CAN_ABBPLC_PCROS/can_aspa
+  
 # Reference:
 
 CANopen knowledge: http://www.canopensolutions.com/index.html

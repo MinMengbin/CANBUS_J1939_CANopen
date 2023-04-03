@@ -82,9 +82,13 @@ command syntax: COB-ID#[data0][data1][data2][data3][data4-data7] (for details, p
 The overall command for this transfer is one of :
 
 Command Code	Meaning
+
 0x23	Write Dictionary Object reply, expedited, 4 bytes sent
+
 0x27	Write Dictionary Object reply, expedited, 3 bytes sent
+
 0x2B	Write Dictionary Object reply, expedited, 2 bytes sent
+
 0x2F	Write Dictionary Object reply, expedited, 1 bytes sent
 
 

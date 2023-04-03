@@ -35,3 +35,4 @@ CANopen high-level protocol for CAN-bus: https://www.nikhef.nl/pub/departments/c
 Introduction to J1939 from Vector: https://vector.com/portal/medien/cmc/application_notes/AN-ION-1-3100_Introduction_to_J1939.pdf
 
 Simmasoftware Presentation about J1939: http://www.simmasoftware.com/j1939-presentation.pdf
+TD-03011E Identifier Usage in CANopen Networks https://www.microcontrol.net/wp-content/uploads/2021/10/td-03011e.pdf

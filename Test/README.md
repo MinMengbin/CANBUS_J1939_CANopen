@@ -78,7 +78,16 @@ Emergency message: 08A: COB-ID (Hex) or CAN-ID =  080 + A (node-ID); [8] : 8 byt
 # SDO (Service Data Object) protocol
   
 command syntax: COB-ID#[data0][data1][data2][data3][data4-data7] (for details, please check referece of CANopen high-level protocol for CAN-bus)
-  
+
+The overall command for this transfer is one of :
+
+Command Code	Meaning
+0x23	Write Dictionary Object reply, expedited, 4 bytes sent
+0x27	Write Dictionary Object reply, expedited, 3 bytes sent
+0x2B	Write Dictionary Object reply, expedited, 2 bytes sent
+0x2F	Write Dictionary Object reply, expedited, 1 bytes sent
+
+
 First test expedited transfer.
 
 # [Initiate Domain Upload]
